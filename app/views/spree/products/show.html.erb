@@ -1,3 +1,6 @@
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/elevatezoom/3.0.8/jquery.elevatezoom.min.js"></script>
+
 <% cache [I18n.locale, current_pricing_options, @product] do %>
   <div data-hook="product_show" itemscope itemtype="http://schema.org/Product">
     <% @body_id = 'product-details' %>
@@ -7,7 +10,17 @@
 
         <div id="product-images" data-hook="product_images">
           <div id="main-image" data-hook>
-            <%= render partial: 'image' %>
+          <img  id="zoom-image" data-zoom-image="/spree/products/21/mini/ror_tote.jpeg?1567013165" <%= render partial: 'image' %> 
+          
+          <script>
+          $('#zoom-image').elevateZoom({
+            zoomType: "inner",
+            cursor: "crosshair",
+            zoomWindowFadeIn: 500,
+            zoomWindowFadeOut: 750
+           }); 
+          </script>
+            
           </div>
           <div id="thumbnails" data-hook>
             <%= render partial: 'thumbnails' %>
