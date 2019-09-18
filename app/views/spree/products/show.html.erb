@@ -18,6 +18,9 @@
             zoomWindowFadeIn: 500,
             zoomWindowFadeOut: 750
            }); 
+            $('#product-images').hover(function(){
+            $('.zoomWindow').css("backgroundImage", "url('"+$('#zoom-image')[0].src+"')")
+          });
           </script>
             
           </div>
